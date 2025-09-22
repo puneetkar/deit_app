@@ -1,0 +1,40 @@
+[
+  {
+    "model": "core.dietplan",
+    "pk": 1,
+    "fields": {
+      "code": "underweight",
+      "title": "Underweight Plan",
+      "text": "Increase calorie intake with nutrient-dense foods. Include healthy fats, complex carbs, and protein."
+    }
+  },
+  {
+    "model": "core.dietplan",
+    "pk": 2,
+    "fields": {
+      "code": "normal",
+      "title": "Normal BMI Plan",
+      "text": "Maintain a balanced diet: vegetables, fruits, whole grains, lean proteins, and healthy fats."
+    }
+  },
+  {
+    "model": "core.dietplan",
+    "pk": 3,
+    "fields": {
+      "code": "overweight",
+      "title": "Overweight Plan",
+      "text": "Moderate calorie deficit. Emphasize fiber, lean protein, and reduce refined sugars."
+    }
+  },
+  {
+    "model": "core.dietplan",
+    "pk": 4,
+    "fields": {
+      "code": "obese",
+      "title": "Obesity Plan",
+      "text": "Structured calorie control with medical guidance if needed. Focus on low-glycemic foods and regular activity."
+    }
+  }
+]
+
+

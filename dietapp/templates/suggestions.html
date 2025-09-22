@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Your Diet Suggestions{% endblock %}
+{% block content %}
+<section>
+  <h3>Your Suggestions</h3>
+  {% if user.is_authenticated %}
+    <p><strong>BMI:</strong> {{ bmi|default:"-" }} {% if category != 'unknown' %} ({{ category }}){% endif %}</p>
+    <article>
+      <p>{{ suggestion_text }}</p>
+    </article>
+    <details>
+      <summary>Update your profile via API</summary>
+      <pre>PATCH /api/profile/ {"height_cm": 175, "weight_kg": 70}</pre>
+    </details>
+  {% else %}
+    <p>Please log in to view personalized suggestions.</p>
+  {% endif %}
+</section>
+{% endblock %}
+
+

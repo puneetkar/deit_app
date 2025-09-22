@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Sign up{% endblock %}
+{% block content %}
+<section>
+  <h3>Create your account</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="grid">
+      <label>Username {{ form.username }}</label>
+      <label>Email {{ form.email }}</label>
+    </div>
+    <div class="grid">
+      <label>Password {{ form.password1 }}</label>
+      <label>Confirm password {{ form.password2 }}</label>
+    </div>
+    <div class="grid">
+      <label>Height (cm) {{ form.height_cm }}</label>
+      <label>Weight (kg) {{ form.weight_kg }}</label>
+    </div>
+    <label>Dietary preference {{ form.dietary_preference }}</label>
+    <label>{{ form.wants_daily_email }} Receive daily email tips</label>
+    <button type="submit">Sign up</button>
+  </form>
+  <p class="muted">Already have an account? <a href="/api/login/">Log in</a></p>
+</section>
+{% endblock %}
+
+

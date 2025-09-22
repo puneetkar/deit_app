@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Health Diet - Home{% endblock %}
+{% block content %}
+<section>
+  <h3>Welcome</h3>
+  <p>Explore our directory of diet experts and get personalized suggestions based on your BMI.</p>
+  <div class="grid">
+    <a role="button" href="/api/experts/">Browse Diet Experts</a>
+    <a role="button" href="/api/suggestions/">View Your Suggestions</a>
+  </div>
+  <details>
+    <summary>How BMI-based suggestions work</summary>
+    <p>Update your profile (height and weight) via the API or admin, and we will match a diet plan for your BMI category.</p>
+  </details>
+  <p class="muted">Tip: Use the Django admin to add experts and manage diet plans.</p>
+  <a href="/admin/">Go to Admin</a>
+ </section>
+{% endblock %}
+
+

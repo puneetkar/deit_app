@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Food Quiz{% endblock %}
+{% block content %}
+<section>
+  <h3>Food Quiz</h3>
+  <p class="muted">Mark whether each food is good or not.</p>
+  <p>Score: {{ score }}/{{ total }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <ol>
+      {% for q in questions %}
+        <li style="margin-bottom:.6rem">
+          <strong>{{ q.text }}</strong><br>
+          <label><input type="radio" name="q_{{ q.id }}" value="good"> Good</label>
+          <label><input type="radio" name="q_{{ q.id }}" value="bad"> Not Good</label>
+        </li>
+      {% endfor %}
+    </ol>
+    <button type="submit">Submit answers</button>
+  </form>
+</section>
+{% endblock %}
+
+

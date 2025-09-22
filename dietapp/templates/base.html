@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Health Diet{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="/static/site.css">
+    {% block extra_head %}{% endblock %}
+    <style>
+        .tabs { display:flex; gap:12px; margin-bottom: 1rem; flex-wrap: wrap; }
+        .tabs a { padding: .5rem .8rem; border-radius: 8px; text-decoration: none; border: 1px solid #e5e7eb; }
+        .tabs a.active { background: #111827; color: white; border-color: #111827; }
+        .card-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:16px; }
+        .expert-card { border:1px solid #e5e7eb; border-radius:12px; padding:16px; background:white; }
+        header { margin: 1rem 0 0.5rem; }
+        .muted { color: #6b7280; }
+    </style>
+</head>
+<body>
+<main class="container">
+    <header>
+        <h2>Health Diet</h2>
+        <p class="muted">Personalized diet suggestions and expert directory</p>
+    </header>
+    <nav class="tabs">
+        <a href="/api/" class="{% if request.path == '/api/' %}active{% endif %}">Home</a>
+        <a href="/api/experts/" class="{% if '/api/experts' in request.path %}active{% endif %}">Diet Experts</a>
+        <a href="/api/suggestions/" class="{% if '/api/suggestions' in request.path %}active{% endif %}">Suggestions</a>
+        <a href="/api/quiz/" class="{% if '/api/quiz' in request.path %}active{% endif %}">Quiz</a>
+        {% if request.user.is_authenticated %}
+            <span class="muted">Hi, {{ request.user.username }}</span>
+            <a href="/api/logout/">Logout</a>
+        {% else %}
+            <a href="/api/signup/" class="{% if '/api/signup' in request.path %}active{% endif %}">Sign up</a>
+            <a href="/api/login/" class="{% if '/api/login' in request.path %}active{% endif %}">Login</a>
+        {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
+
+

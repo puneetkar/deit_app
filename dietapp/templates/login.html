@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<section>
+  <h3>Login</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <label>Username {{ form.username }}</label>
+    <label>Password {{ form.password }}</label>
+    <button type="submit">Login</button>
+  </form>
+  <p class="muted">No account yet? <a href="/api/signup/">Sign up</a></p>
+</section>
+{% endblock %}
+
+
